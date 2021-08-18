@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { API } from 'aws-amplify';
-import { listNotes } from './graphql/queries';
-import { createNote as createNoteMutation, deleteNote as deleteNoteMutation } from './graphql/mutations';
+import { DataStore } from '@aws-amplify/datastore';
+import { Note } from './models';
 
 const initialFormState = { name: '', description: '' }
 
@@ -15,21 +14,30 @@ function App() {
   }, []);
 
   async function fetchNotes() {
-    const apiData = await API.graphql({ query: listNotes });
-    setNotes(apiData.data.listNotes.items);
+    const models = await DataStore.query(Note);
+    setNotes(models);
   }
 
   async function createNote() {
     if (!formData.name || !formData.description) return;
-    await API.graphql({ query: createNoteMutation, variables: { input: formData } });
-    setNotes([ ...notes, formData ]);
-    setFormData(initialFormState);
+    await DataStore.save(
+      new Note({
+      "name": formData.name,
+      "description": formData.description,
+      "value": formData.value
+      })
+    );
+
+    const models = await DataStore.query(Note);
+    setNotes(models);
   }
 
   async function deleteNote({ id }) {
-    const newNotesArray = notes.filter(note => note.id !== id);
-    setNotes(newNotesArray);
-    await API.graphql({ query: deleteNoteMutation, variables: { input: { id } }});
+    const modelToDelete = await DataStore.query(Note, id);
+    DataStore.delete(modelToDelete);
+
+    const models = await DataStore.query(Note);
+    setNotes(models);
   }
 
   return (
@@ -45,6 +53,11 @@ function App() {
         placeholder="Note description"
         value={formData.description}
       />
+       <input
+        onChange={e => setFormData({ ...formData, 'value': e.target.value})}
+        placeholder="Value"
+        value={formData.value}
+      />
       <button onClick={createNote}>Create Note</button>
       <div style={{marginBottom: 30}}>
         {
@@ -52,6 +65,7 @@ function App() {
             <div key={note.id || note.name}>
               <h2>{note.name}</h2>
               <p>{note.description}</p>
+              <p>{note.value}</p>
               <button onClick={() => deleteNote(note)}>Delete note</button>
             </div>
           ))
