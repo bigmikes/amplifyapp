@@ -4,4 +4,4 @@ type Note @model @auth(rules: [{allow: public}]) {
   description: String
   value: String
 }
- 
+  
