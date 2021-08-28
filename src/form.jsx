@@ -72,6 +72,11 @@ const postSchema = {
         "title": "Non mi piace giocare a calcietto. I miei amici una sera organizzano una partita a mia insaputa. Non mi sembra giusto.",
         "enum": ["Per niente d'accordo", "Poco d'accordo", "Molto d'accordo", "Completamente d'accordo"]
       },
+      "14": {
+        "type": "string",
+        "title": "Una tua giovane amica e' giu' di morale. Per farla stare meglio, gli dici che non e' male e che te la faresti volentieri.",
+        "enum": ["Per niente d'accordo", "Poco d'accordo", "Molto d'accordo", "Completamente d'accordo"]
+      },
     }
   };
 
@@ -149,6 +154,12 @@ const uiSchema = {
         }
       },
       "13": {
+        "ui:widget": "radio",
+        "ui:options": {
+          "inline": false
+        }
+      },
+      "14": {
         "ui:widget": "radio",
         "ui:options": {
           "inline": false
