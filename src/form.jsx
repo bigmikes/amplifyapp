@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 const postSchema = {
     "title": "Il Test",
-    "description": "Vero Uomo o Inetto? Buono o Mostro? Gentiluomo o Rude? Scopri chi sei veramente senza lo sforzo dell'introspezione. Rispondi alle domande semplicemente indicando quanto sei d'accordo con le seguenti affermazioni.",
+    "description": "Vero Uomo o Inetto? Buono o Mostro? Gentiluomo o Rude? Scopri chi sei veramente senza lo sforzo dell'introspezione. Scoprilo semplicemente indicando quanto sei d'accordo con le seguenti affermazioni.",
     "type": "object",
     "properties": {
       "1": {
@@ -64,7 +64,7 @@ const postSchema = {
       },
       "12": {
         "type": "string",
-        "title": "Non capisco perche' il mio amico Fabrizio preferisce andare a lavorare al bar invece che studiare e laurearsi.",
+        "title": "Il mio amico Fabrizio va all'universita'. Si vede che non ha voglia di farsi il culo nella vita.",
         "enum": ["Per niente d'accordo", "Poco d'accordo", "Molto d'accordo", "Completamente d'accordo"]
       },
       "13": {
@@ -75,6 +75,36 @@ const postSchema = {
       "14": {
         "type": "string",
         "title": "Una tua giovane amica e' giu' di morale. Per farla stare meglio, gli dici che non e' male e che te la faresti volentieri.",
+        "enum": ["Per niente d'accordo", "Poco d'accordo", "Molto d'accordo", "Completamente d'accordo"]
+      },
+      "15": {
+        "type": "string",
+        "title": "Internet e' pieno di fake news. Pero' mio zio mi ha detto che gli immigrati ci rubano il lavoro. Gli credo.",
+        "enum": ["Per niente d'accordo", "Poco d'accordo", "Molto d'accordo", "Completamente d'accordo"]
+      },
+      "16": {
+        "type": "string",
+        "title": "Vedo una persona in difficolta' che tutti disprezzano. Mi dicono che e' una perdita di tempo, tanto non ascolta. L'aiuto.",
+        "enum": ["Per niente d'accordo", "Poco d'accordo", "Molto d'accordo", "Completamente d'accordo"]
+      },
+      "17": {
+        "type": "string",
+        "title": "Giovanni e' un po' buffo. Inciampa e cade. Gli rido in faccia.",
+        "enum": ["Per niente d'accordo", "Poco d'accordo", "Molto d'accordo", "Completamente d'accordo"]
+      },
+      "18": {
+        "type": "string",
+        "title": "Il gruppo e' di nuovo a discutere su topic idioti. Non commento, sono superiore a tutto cio' e poi mi devo riposare che dopo non ho nulla da fare.",
+        "enum": ["Per niente d'accordo", "Poco d'accordo", "Molto d'accordo", "Completamente d'accordo"]
+      },
+      "19": {
+        "type": "string",
+        "title": "E' difficile lavorare sui propri difetti. Meglio lamentarsene.",
+        "enum": ["Per niente d'accordo", "Poco d'accordo", "Molto d'accordo", "Completamente d'accordo"]
+      },
+      "20": {
+        "type": "string",
+        "title": "Questo test non puo' essere davvero stato scritto, non c'e' liberta' parola.",
         "enum": ["Per niente d'accordo", "Poco d'accordo", "Molto d'accordo", "Completamente d'accordo"]
       },
     }
@@ -164,7 +194,43 @@ const uiSchema = {
         "ui:options": {
           "inline": false
         }
-      }
+      },
+      "15": {
+        "ui:widget": "radio",
+        "ui:options": {
+          "inline": false
+        }
+      },
+      "16": {
+        "ui:widget": "radio",
+        "ui:options": {
+          "inline": false
+        }
+      },
+      "17": {
+        "ui:widget": "radio",
+        "ui:options": {
+          "inline": false
+        }
+      },
+      "18": {
+        "ui:widget": "radio",
+        "ui:options": {
+          "inline": false
+        }
+      },
+      "19": {
+        "ui:widget": "radio",
+        "ui:options": {
+          "inline": false
+        }
+      },
+      "20": {
+        "ui:widget": "radio",
+        "ui:options": {
+          "inline": false
+        }
+      },
    };
 
 export default function Form({ onSubmit }) {
