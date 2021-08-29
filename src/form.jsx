@@ -69,7 +69,7 @@ const postSchema = {
       },
       "13": {
         "type": "string",
-        "title": "Non mi piace giocare a calcietto. I miei amici una sera organizzano una partita a mia insaputa. Non mi sembra giusto.",
+        "title": "Non mi piace giocare a calcetto. I miei amici una sera organizzano una partita a mia insaputa. Non mi sembra giusto.",
         "enum": ["Per niente d'accordo", "Poco d'accordo", "Molto d'accordo", "Completamente d'accordo"]
       },
       "14": {
