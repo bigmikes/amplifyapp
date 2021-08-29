@@ -64,7 +64,7 @@ const postSchema = {
       },
       "12": {
         "type": "string",
-        "title": "Il mio amico Fabrizio va all'universita'. Si vede che non ha voglia di farsi il culo nella vita.",
+        "title": "Il mio amico Fabrizio non va all'universita'. Si vede che non ha voglia di farsi il culo nella vita.",
         "enum": ["Per niente d'accordo", "Poco d'accordo", "Molto d'accordo", "Completamente d'accordo"]
       },
       "13": {
